@@ -22,7 +22,7 @@ def loginView(request):
         if request.POST.get('loginUser', ''):
             loginUser = request.POST.get('loginUser', '')
             password = request.POST.get('password', '')
-            captcha = request.POST.get('captcha', '')
+            # captcha = request.POST.get('captcha', '')
             if MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)):
                 user = MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)).first()
                 if check_password(password, user.password):
