@@ -1,25 +1,28 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from index.models import *
 from user.models import *
 from .form import MyUserCreationForm
 from django.db.models import Q
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .form import CaptchaTestForm
+# from .form import CaptchaTestForm
 
 # 用户注册与登录
 def loginView(request):
-    user = MyUserCreationForm()
+
     # 表单提交
     if request.method == 'POST':
-        form = CaptchaTestForm(request.POST)
+        user = MyUserCreationForm(request.POST)
+        # form = CaptchaTestForm(request.POST)
         # 判断表单提交是用户登录还是用户注册
         # 用户登录
         if request.POST.get('loginUser', ''):
             loginUser = request.POST.get('loginUser', '')
             password = request.POST.get('password', '')
+            captcha = request.POST.get('captcha', '')
             if MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)):
                 user = MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)).first()
                 if check_password(password, user.password):
@@ -41,7 +44,7 @@ def loginView(request):
                 else:
                     tips = user.errors.get('mobile', '注册失败')
     else:
-        form = CaptchaTestForm()
+        user = MyUserCreationForm()
     return render(request, 'login.html', locals())
 
 # 用户中心

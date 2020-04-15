@@ -55,8 +55,8 @@ require(['jquery','com'], function ($,com){
       regTipCon.empty().parent().hide();
     }
   });
- 
-  
+
+
   //检测输入内容
   function detect(regexp,val,text,air,tip){
     if(val.trim() == ''){

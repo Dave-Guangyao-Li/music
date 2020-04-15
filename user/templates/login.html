@@ -1,6 +1,7 @@
 {% extends "title_base.html"  %}
 {% block title  %}
 {% load staticfiles %}
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.ico" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">
@@ -31,7 +32,7 @@
                         </div>
                     </div>
                     <div class="itembox">
-                        <div class="item">{{form.captcha }}</div>
+                        <div class="item">验证码: {{user.captcha }}</div>
                     </div>
                     {% if tips %}
                         <div>提示:<span>{{ tips }}</span></div>
@@ -83,9 +84,8 @@
         </div>
     </div>
 </div>
-<script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
 <script>
-        $(function(){
+$(function(){
             {# ajax 刷新验证码 #}
             $('.captcha').click(function(){
                 console.log('click');
@@ -114,5 +114,6 @@
             });
         })
 </script>
+<script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
 {% endblock  %}
 
