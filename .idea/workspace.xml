@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="552277e1-f5ba-46bc-8443-c74b17c02d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/music/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
@@ -253,7 +250,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586406569871</updated>
       <workItem from="1586406573283" duration="90318000" />
-      <workItem from="1586591093533" duration="11552000" />
+      <workItem from="1586591093533" duration="13162000" />
     </task>
     <servers />
   </component>
@@ -269,22 +266,22 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1586406893205" />
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1586943054457">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1586943332807">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1586943054457" />
-    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1586943054456">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1586943332807" />
+    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1586943332807">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1586943054456" />
-    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1586943054456">
+    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1586943332807" />
+    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1586943332807">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1586943054456" />
-    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1586943054457">
+    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1586943332807" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1586943332807">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1586943054457" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1586943332807" />
     <state x="222" y="103" key="SettingsEditor" timestamp="1586941426654">
       <screen x="0" y="0" width="1440" height="920" />
     </state>

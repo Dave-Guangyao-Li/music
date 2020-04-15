@@ -64,7 +64,11 @@ def homeView(request, page):
     # 先查出当前用户所有喜欢的歌曲
     current_user = MyUser.objects.get(username=request.user.username)
     # 查出关联的所有喜欢的歌曲信息
-    liked_song_info = current_user.liked_song.all()
+    liked_song_info_result = current_user.liked_song.all()
+    liked_song_info = [] # 收藏歌曲列表
+    for result in liked_song_info_result:
+        liked_song_info.append({'song_id': int(result.song_id), 'song_singer': result.song_singer, 'song_name': result.song_name, 'song_time': result.song_time})
+    request.session['liked_song_info'] = liked_song_info  # 存入session
     # 分页功能展示已收藏歌曲
     liked_song_paginator = Paginator(liked_song_info, 4)
     try:
