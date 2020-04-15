@@ -8,4 +8,6 @@ urlpatterns = [
     # 退出用户登录
     path('logout.html', views.logoutView, name='logout'),
     # path('custom.html', views.customView, name='custom'),
+    # 验证码验证API接口
+    path('ajax_val', views.ajax_val, name='ajax_val')
 ]

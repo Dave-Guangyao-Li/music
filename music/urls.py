@@ -28,6 +28,8 @@ urlpatterns = [
     path('comment/', include('comment.urls')),
     path('search/', include('search.urls')),
     path('user/', include('user.urls')),
+    # 导入插件URL地址信息，用于生成图片地址
+    path('captcha/', include('captcha.urls')),
     # 设置项目上线的静态资源路径
     url('^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static')

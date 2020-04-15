@@ -7,12 +7,14 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .form import CaptchaTestForm
 
 # 用户注册与登录
 def loginView(request):
     user = MyUserCreationForm()
     # 表单提交
     if request.method == 'POST':
+        form = CaptchaTestForm(request.POST)
         # 判断表单提交是用户登录还是用户注册
         # 用户登录
         if request.POST.get('loginUser', ''):
@@ -38,6 +40,8 @@ def loginView(request):
                     tips = user.errors.get('username', '注册失败')
                 else:
                     tips = user.errors.get('mobile', '注册失败')
+    else:
+        form = CaptchaTestForm()
     return render(request, 'login.html', locals())
 
 # 用户中心
@@ -76,3 +80,23 @@ def homeView(request, page):
 def logoutView(request):
     logout(request)
     return redirect('/')
+
+# ajax接口，实现动态验证验证码
+from django.http import JsonResponse
+from captcha.models import CaptchaStore
+def ajax_val(request):
+    if request.is_ajax():
+        # 用户输入的验证码结果
+        response = request.GET['response']
+        # 隐藏域的value值
+        hashkey = request.GET['hashkey']
+        cs = CaptchaStore.objects.filter(response=response, hashkey=hashkey)
+        # 若存在cs，则验证成功，否则验证失败
+        if cs:
+            json_data = {'status':1}
+        else:
+            json_data = {'status':0}
+        return JsonResponse(json_data)
+    else:
+        json_data = {'status':0}
+        return JsonResponse(json_data)

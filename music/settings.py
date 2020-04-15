@@ -43,7 +43,37 @@ INSTALLED_APPS = [
     'play',
     'search',
     'comment',
+    # 添加验证码功能
+    'captcha'
 ]
+
+# django_simple_captcha 验证码基本配置
+# 设置验证码的显示顺序，一个验证码识别包含文本输入框、隐藏域和验证码图片，该配置是设置三者的显示顺序
+CAPTCHA_OUTPUT_FORMAT = '%(text_field)s %(hidden_field)s %(image)s'
+# 设置图片噪点
+CAPTCHA_NOISE_FUNCTIONS = ( # 设置样式
+                            'captcha.helpers.noise_null',
+                            # 设置干扰线
+                           'captcha.helpers.noise_arcs',
+                            # 设置干扰点
+                           'captcha.helpers.noise_dots',
+                           )
+# 图片大小
+CAPTCHA_IMAGE_SIZE = (100, 25)
+# 设置图片背景颜色
+CAPTCHA_BACKGROUND_COLOR = '#ffffff'
+# 图片中的文字为随机英文字母，如 mdsh
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+# 图片中的文字为英文单词
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.word_challenge'
+# 图片中的文字为数字表达式，如1+2=</span>
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+# 设置字符个数
+CAPTCHA_LENGTH = 4
+# 设置超时(minutes)
+CAPTCHA_TIMEOUT = 1
+
+
 # 添加中间件LocaleMiddleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
