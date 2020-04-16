@@ -2,7 +2,7 @@
 
 {% block title  %}
 {% load staticfiles %}
-<link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.ico" %}">
+<link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/play.css" %}">
 
@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div class="header">
-		<a href="/" class="logo" title="首页"><img src="{% static "image/logo.png" %}"></a>
+		<a href="/" class="logo" title="首页"><img src="{% static "image/logo2.png" %}"></a>
 		<div class="search-box">
 			<!-- 歌曲查询 -->
             <form id="searchForm" action="{% url 'search' 1 %}" method="post" target="_blank">
