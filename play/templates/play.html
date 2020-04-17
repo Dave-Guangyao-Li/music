@@ -5,7 +5,6 @@
 <link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/play.css" %}">
-
 {#<link rel="stylesheet" href="/static/css/style.css">#}
 
 {#<script type="text/javascript" src='/static/js/jquery.min.js'></script>#}
@@ -141,7 +140,7 @@
         {% if user.is_active == 1 %}
             <div class="section">
                 <div class="section-header">
-                    <h3>为你推荐相关歌曲</h3>
+                    <h3>混合类型推荐</h3>
                 </div>
                 <div class="section-content">
                     <div class="parts-box">
@@ -149,18 +148,121 @@
                         <div class="parts-slider" id="J_PartsList">
                             <div class="parts-list-wrap f_w">
                                 <ul id="" class="parts-list clearfix f_s">
-                                    {% for item in song_relevant %}
-                                    <li>
-                                        {% if item.song_id != song_info.song_id %}
-                                        <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
-                                            <img data-src="{% static "songImg/" %}{{ item.song_img }}">
-                                        </a>
-                                        <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
-                                        <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
-                                        {% endif %}
-                                    </li>
-                                    {% endfor %}
-                                </ul>e
+                                    {% if not song_relevant_overall %}
+                                        <h4>
+                                            暂无相关推荐
+                                        </h4>
+                                    {% elif item.song_id != song_info.song_id %}
+                                        {% for item in song_relevant_overall %}
+                                            <li>
+                                                <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
+                                                    <img data-src="{% static "songImg/" %}{{ item.song_img }}">
+                                                </a>
+                                                <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
+                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="javascript:;" target="_self" id="J_PartsNext" class="next-btn"><i></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h3>相似曲风推荐</h3>
+                </div>
+                <div class="section-content">
+                    <div class="parts-box">
+                        <a href="javascript:;" target="_self" id="J_PartsPrev" class="prev-btn"><i></i></a>
+                        <div class="parts-slider" id="J_PartsList">
+                            <div class="parts-list-wrap f_w">
+                                <ul id="" class="parts-list clearfix f_s">
+                                    {% if not song_relevant_type %}
+                                        <h4>
+                                            暂无相关推荐
+                                        </h4>
+                                    {% elif item.song_id != song_info.song_id %}
+                                        {% for item in song_relevant_type %}
+                                            <li>
+                                                <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
+                                                    <img data-src="{% static "songImg/" %}{{ item.song_img }}">
+                                                </a>
+                                                <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
+                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="javascript:;" target="_self" id="J_PartsNext" class="next-btn"><i></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h3>相同歌手推荐</h3>
+                </div>
+                <div class="section-content">
+                    <div class="parts-box">
+                        <a href="javascript:;" target="_self" id="J_PartsPrev" class="prev-btn"><i></i></a>
+                        <div class="parts-slider" id="J_PartsList">
+                            <div class="parts-list-wrap f_w">
+                                <ul id="" class="parts-list clearfix f_s">
+                                    {% if not song_relevant_singer %}
+                                        <h4>
+                                            暂无相关推荐
+                                        </h4>
+                                    {% elif item.song_id != song_info.song_id %}
+                                        {% for item in song_relevant_singer %}
+                                            <li>
+                                                <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
+                                                    <img data-src="{% static "songImg/" %}{{ item.song_img }}">
+                                                </a>
+                                                <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
+                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="javascript:;" target="_self" id="J_PartsNext" class="next-btn"><i></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <h3>相同语种推荐</h3>
+                </div>
+                <div class="section-content">
+                    <div class="parts-box">
+                        <a href="javascript:;" target="_self" id="J_PartsPrev" class="prev-btn"><i></i></a>
+                        <div class="parts-slider" id="J_PartsList">
+                            <div class="parts-list-wrap f_w">
+                                <ul id="" class="parts-list clearfix f_s">
+                                    {% if not song_relevant_languages %}
+                                        <h4>
+                                            暂无相关推荐
+                                        </h4>
+                                    {% elif item.song_id != song_info.song_id %}
+                                        {% for item in song_relevant_languages %}
+                                            <li>
+                                                <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
+                                                    <img data-src="{% static "songImg/" %}{{ item.song_img }}">
+                                                </a>
+                                                <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
+                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
                             </div>
                         </div>
                         <a href="javascript:;" target="_self" id="J_PartsNext" class="next-btn"><i></i></a>

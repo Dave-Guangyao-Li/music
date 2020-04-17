@@ -30,21 +30,49 @@ def playView(request, song_id):
         song_lyrics = f.read()
         f.close()
 
-    # 相关歌曲 推荐同一类型，同一个歌手，同一语种的歌曲，查询结果合并
+    # 推荐相关歌曲 推荐同一类型，同一个歌手，同一语种的歌曲，以及混合综合推荐，查询结果合并
     song_type = Song.objects.values('song_type').get(song_id=int(song_id))['song_type']
     song_singer = Song.objects.values('song_singer').get(song_id=int(song_id))['song_singer']
     song_languages = Song.objects.values('song_languages').get(song_id=int(song_id))['song_languages']
-    # 可以自行定义各个字段的权重，并根据播放量排序（同一流派选取3个，同一个歌手选取2个，同一语言选1个）
-    song_relevant1 = Dynamic.objects.select_related('song').filter(song__song_type=song_type).order_by('-dynamic_plays').all()[:3]
-    song_relevant2 = Dynamic.objects.select_related('song').filter(song__song_singer=song_singer).order_by('-dynamic_plays').all()[:2]
-    song_relevant3 = Dynamic.objects.select_related('song').filter(song__song_languages=song_languages).order_by('-dynamic_plays').all()[:1]
-    song_relevant_result = set(itertools.chain(song_relevant1, song_relevant2, song_relevant3)) # 合并查询结果并去重
-    # 结果存储进song_relevant中
-    song_relevant = []
+    # 结果根据播放量降序排序
+    song_relevant1 = Dynamic.objects.select_related('song').filter(song__song_type=song_type).order_by('-dynamic_plays').all()
+    song_relevant2 = Dynamic.objects.select_related('song').filter(song__song_singer=song_singer).order_by('-dynamic_plays').all()
+    song_relevant3 = Dynamic.objects.select_related('song').filter(song__song_languages=song_languages ).order_by('-dynamic_plays').all()
+    song_relevant_result = set(itertools.chain(song_relevant1, song_relevant2, song_relevant3)) # 混合推荐合并查询结果并去重
+    # 混合推荐的结果存储进song_relevant_overall中
+    song_relevant_overall = []
     # 存入列表 歌曲推荐只需显示名字，歌手名，专辑封面图即可
     for result in song_relevant_result:
-        song_relevant.append({'song_id': int(result.song.song_id), 'song_singer': result.song.song_singer, 'song_name': result.song.song_name, 'song_img': result.song.song_img})
-    request.session['song_relevant'] = song_relevant # 存入session
+        if result.song.song_id != int(song_info.song_id):  # 不存入当前正在播放的歌曲信息
+            song_relevant_overall.append({'song_id': int(result.song.song_id), 'song_singer': result.song.song_singer, 'song_name': result.song.song_name, 'song_img': result.song.song_img})
+    request.session['song_relevant_overall'] = song_relevant_overall # 存入session
+
+    # 同曲风推荐的结果存储进song_relevant_type中
+    song_relevant_type = []
+    # 存入列表 歌曲推荐只需显示名字，歌手名，专辑封面图即可
+    for result in song_relevant1:
+        if result.song.song_id != int(song_info.song_id):  # 不存入当前正在播放的歌曲信息
+            song_relevant_type.append({'song_id': int(result.song.song_id), 'song_singer': result.song.song_singer,
+                                      'song_name': result.song.song_name, 'song_img': result.song.song_img})
+    request.session['song_relevant_type'] = song_relevant_type  # 存入session
+
+    # 同歌手推荐的结果存储进song_relevant_singer中
+    song_relevant_singer = []
+    # 存入列表 歌曲推荐只需显示名字，歌手名，专辑封面图即可,不存入当前正在播放的歌曲信息
+    for result in song_relevant2:
+        if result.song.song_id != int(song_info.song_id):  # 不存入当前正在播放的歌曲信息
+            song_relevant_singer.append({'song_id': int(result.song.song_id), 'song_singer': result.song.song_singer,
+                                      'song_name': result.song.song_name, 'song_img': result.song.song_img})
+    request.session['song_relevant_singer'] = song_relevant_singer  # 存入session
+
+    # 同语种推荐的结果存储进song_relevant_languages中
+    song_relevant_languages = []
+    # 存入列表 歌曲推荐只需显示名字，歌手名，专辑封面图即可,不存入当前正在播放的歌曲信息
+    for result in song_relevant3:
+        if result.song.song_id != int(song_info.song_id):  # 不存入当前正在播放的歌曲信息
+            song_relevant_languages.append({'song_id': int(result.song.song_id), 'song_singer': result.song.song_singer,
+                                      'song_name': result.song.song_name, 'song_img': result.song.song_img})
+    request.session['song_relevant_languages'] = song_relevant_languages  # 存入session
 
 
     # 添加播放次数
