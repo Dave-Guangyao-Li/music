@@ -4,7 +4,7 @@ from django import forms
 from captcha.fields import CaptchaField
 
 # 定义MyUser的数据表单，用于用户注册
-class MyUserCreationForm(UserCreationForm, forms.Form):
+class MyUserCreationForm(UserCreationForm):
     # 重写初始化函数，设置自定义字段password1和password2的样式和属性
     def __init__(self, *args, **kwargs):
         super(MyUserCreationForm, self).__init__(*args, **kwargs)
@@ -14,7 +14,7 @@ class MyUserCreationForm(UserCreationForm, forms.Form):
     class Meta(UserCreationForm.Meta):
         model = MyUser
         # 在注册界面添加模型字段：手机号码和密码
-        fields = UserCreationForm.Meta.fields +('mobile',)
+        fields = UserCreationForm.Meta.fields + ('mobile',)
         # 设置模型字段的样式和属性
         widgets = {
             'mobile': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'手机号'}),

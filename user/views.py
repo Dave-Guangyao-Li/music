@@ -12,10 +12,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # 用户注册与登录
 def loginView(request):
-
+    user = MyUserCreationForm()
     # 表单提交
     if request.method == 'POST':
-        user = MyUserCreationForm(request.POST)
         # form = CaptchaTestForm(request.POST)
         # 判断表单提交是用户登录还是用户注册
         # 用户登录
@@ -43,8 +42,8 @@ def loginView(request):
                     tips = user.errors.get('username', '注册失败')
                 else:
                     tips = user.errors.get('mobile', '注册失败')
-    else:
-        user = MyUserCreationForm()
+    # else:
+    #     user = MyUserCreationForm()
     return render(request, 'login.html', locals())
 
 # 用户中心
