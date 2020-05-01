@@ -12,9 +12,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # 用户注册与登录
 def loginView(request):
-    user = MyUserCreationForm()
     # 表单提交
     if request.method == 'POST':
+        user = MyUserCreationForm()
         # form = CaptchaTestForm(request.POST)
         # 判断表单提交是用户登录还是用户注册
         # 用户登录
@@ -42,8 +42,8 @@ def loginView(request):
                     tips = user.errors.get('username', '注册失败')
                 else:
                     tips = user.errors.get('mobile', '注册失败')
-    # else:
-    #     user = MyUserCreationForm()
+    else:
+        user = MyUserCreationForm()
     return render(request, 'login.html', locals())
 
 # 用户中心
@@ -81,6 +81,18 @@ def homeView(request, page):
         liked_song_contacts = liked_song_paginator.page(liked_song_paginator.num_pages)
 
     return render(request, 'home.html', locals())
+
+# 取消当前用户的某歌曲收藏
+# 设置用户登录限制
+@login_required(login_url='/user/login.html')
+def unlikeView(request, song_id):
+    # 查询当前用户
+    current_user = MyUser.objects.get(username=request.user.username)
+    current_liked_song_id = current_user.liked_song.get(song_id=int(song_id))
+    # 在多对多模型表中删除当前歌曲对应的收藏记录
+    current_user.liked_song.remove(current_liked_song_id)
+    return render(request, 'home.html', locals())
+
 
 # 退出登录
 def logoutView(request):

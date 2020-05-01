@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="552277e1-f5ba-46bc-8443-c74b17c02d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -62,7 +62,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="leetcode.id" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -270,7 +270,10 @@
       <workItem from="1587383166802" duration="2868000" />
       <workItem from="1587393489910" duration="5916000" />
       <workItem from="1587443079297" duration="1227000" />
-      <workItem from="1587700253219" duration="2785000" />
+      <workItem from="1587700253219" duration="2796000" />
+      <workItem from="1588082490003" duration="1098000" />
+      <workItem from="1588084162448" duration="755000" />
+      <workItem from="1588306895921" duration="5820000" />
     </task>
     <servers />
   </component>
@@ -282,34 +285,42 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="176" y="116" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.920@0.0.1440.920" timestamp="1586591209397" />
-    <state x="501" y="216" key="FileChooserDialogImpl" timestamp="1586406893205">
+    <state x="330" y="53" key="CommitChangelistDialog2" timestamp="1588084190414">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1586406893205" />
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1587706659245">
+    <state x="330" y="53" key="CommitChangelistDialog2/0.0.1440.920@0.0.1440.920" timestamp="1588084190414" />
+    <state x="501" y="216" key="FileChooserDialogImpl" timestamp="1588084688005">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1587706659245" />
-    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1587706659244">
+    <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1588084688005" />
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588311970118">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1587706659244" />
-    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1587706659241">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588311970118" />
+    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588311970116">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1587706659241" />
-    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1587706659244">
+    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588311970116" />
+    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588311970115">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1587706659244" />
-    <state x="222" y="103" key="SettingsEditor" timestamp="1586941426654">
+    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588311970115" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588311970117">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state x="222" y="103" key="SettingsEditor/0.0.1440.920@0.0.1440.920" timestamp="1586941426654" />
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1587700255450">
+    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588311970117" />
+    <state x="56" y="117" width="1171" height="715" key="SettingsEditor" timestamp="1588084393228">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1587700255450" />
+    <state x="56" y="117" width="1171" height="715" key="SettingsEditor/0.0.1440.920@0.0.1440.920" timestamp="1588084393228" />
+    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1588084162678">
+      <screen x="0" y="0" width="1440" height="920" />
+    </state>
+    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1588084162678" />
+    <state x="517" y="378" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588084179019">
+      <screen x="0" y="0" width="1440" height="920" />
+    </state>
+    <state x="517" y="378" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.920@0.0.1440.920" timestamp="1588084179019" />
     <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1586578005892">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
