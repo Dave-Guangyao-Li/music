@@ -91,7 +91,7 @@ def unlikeView(request, song_id):
     current_liked_song_id = current_user.liked_song.get(song_id=int(song_id))
     # 在多对多模型表中删除当前歌曲对应的收藏记录
     current_user.liked_song.remove(current_liked_song_id)
-    return render(request, 'home.html', locals())
+    return HttpResponseRedirect('/user/home/1.html')
 
 
 # 退出登录
@@ -100,7 +100,7 @@ def logoutView(request):
     return redirect('/')
 
 # ajax接口，实现动态验证验证码
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from captcha.models import CaptchaStore
 def ajax_val(request):
     if request.is_ajax():

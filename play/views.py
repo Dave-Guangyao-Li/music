@@ -1,7 +1,7 @@
 import itertools
 
 from django.shortcuts import render, redirect
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponseRedirect
 from index.models import *
 from user.models import MyUser
 from django.contrib.auth import login, logout
@@ -129,16 +129,16 @@ def likeView(request, song_id):
     song_info = Song.objects.get(song_id=int(song_id))
     # 为当前用户添加收藏曲目信息
     current_user = MyUser.objects.get(username=request.user.username)
-    # 歌词
-    if song_info.song_lyrics != '暂无歌词':
-        f = open('static/songLyric/' + song_info.song_lyrics, 'r', encoding='utf-8')
-        song_lyrics = f.read()
-        f.close()
+    # # 歌词
+    # if song_info.song_lyrics != '暂无歌词':
+    #     f = open('static/songLyric/' + song_info.song_lyrics, 'r', encoding='utf-8')
+    #     song_lyrics = f.read()
+    #     f.close()
     # 在多对多模型表中添加对应的收藏数据
     current_user.liked_song.add(song_info)
-    # 显示推荐歌曲和播放列表
-    play_list = request.session.get('play_list')
-    song_relevant = request.session.get('song_relevant')
+    # # 显示推荐歌曲和播放列表
+    # play_list = request.session.get('play_list')
+    # song_relevant = request.session.get('song_relevant')
     # 添加收藏次数
     dynamic_info = Dynamic.objects.filter(song_id=int(song_id)).first()
 
@@ -150,5 +150,6 @@ def likeView(request, song_id):
     else:
         dynamic_info = Dynamic(dynamic_plays=0, dynamic_search=0, dynamic_like=1, dynamic_down=0, song_id=song_id)
         dynamic_info.save()
-    return render(request, 'play.html', locals())
+    return HttpResponseRedirect("/play/" + str(song_info.song_id) + ".html")
+    # return render(request, 'play.html', locals())
     # return redirect("play/"+ str(song_info.song_id) +".html")
