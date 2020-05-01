@@ -8,6 +8,10 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+
+
+
 # 歌曲播放页面
 def playView(request, song_id):
     # 热搜歌曲
@@ -129,19 +133,12 @@ def likeView(request, song_id):
     song_info = Song.objects.get(song_id=int(song_id))
     # 为当前用户添加收藏曲目信息
     current_user = MyUser.objects.get(username=request.user.username)
-    # # 歌词
-    # if song_info.song_lyrics != '暂无歌词':
-    #     f = open('static/songLyric/' + song_info.song_lyrics, 'r', encoding='utf-8')
-    #     song_lyrics = f.read()
-    #     f.close()
     # 在多对多模型表中添加对应的收藏数据
     current_user.liked_song.add(song_info)
-    # # 显示推荐歌曲和播放列表
-    # play_list = request.session.get('play_list')
-    # song_relevant = request.session.get('song_relevant')
+    # 弹出消息提示收藏成功
+    messages.success(request, "歌曲收藏成功！")
     # 添加收藏次数
     dynamic_info = Dynamic.objects.filter(song_id=int(song_id)).first()
-
     # 判断歌曲动态信息是否存在，存在就在原来基础上加1
     if dynamic_info:
         dynamic_info.dynamic_like += 1
