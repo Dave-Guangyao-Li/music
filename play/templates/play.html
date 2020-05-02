@@ -142,8 +142,6 @@
                     </div><!-- end product-comment -->
                 </div><!-- end product-detail-main -->
             </div><!-- end product-detail-box -->
-        {{ song_info }}
-        {{ train }}
         {# 用户登录时才会为其推荐相关歌曲#}
         {% if user.is_active == 1 %}
             <div class="section">
@@ -167,6 +165,7 @@
                                                     <img data-src="{% static "songImg/" %}{{ item.song_img }}">
                                                 </a>
                                                 <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
+                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
                                                 <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
                                             </li>
                                         {% endfor %}

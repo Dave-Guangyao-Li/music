@@ -28,7 +28,7 @@ def playView(request, song_id):
                 song_exist = True
     if song_exist == False:
         play_list.append({'song_id': int(song_id), 'song_singer': song_info.song_singer, 'song_name': song_info.song_name, 'song_time': song_info.song_time})
-    request.session['play_list'] = play_list #存入session
+    request.session['play_list'] = play_list  #存入session
     # 歌词
     if song_info.song_lyrics != '暂无歌词':
         f = open('static/songLyric/' + song_info.song_lyrics, 'r', encoding='utf-8')
@@ -117,6 +117,10 @@ def recommendView(request, song_id):
 
 
     # 基于用户的系统过滤推荐cfUser实现
+    '''目前一个缺陷就是：如果是新注册的用户，没有收藏歌曲，或某一个用户收藏的歌曲与其他任何用户都没有交集
+    都会导致在计算W时出现除以零的异常，导致页面出错
+    '''
+
     # train用来存储用户id:对应收藏歌曲id列表，字典存储
     train = {}
     # 获取所有用户的id
@@ -164,7 +168,7 @@ def recommendView(request, song_id):
         cf_song_info = Song.objects.get(song_id=sid)
         song_cfrelevant_overall.append(
             {'song_id': int(cf_song_info.song_id), 'song_singer': cf_song_info.song_singer,
-             'song_name': cf_song_info.song_name, 'song_img': cf_song_info.song_img})
+             'song_name': cf_song_info.song_name, 'song_img': cf_song_info.song_img, 'relevant_measure': rank[sid]})
     request.session['song_relevant_overall'] = song_cfrelevant_overall  # 存入session
     messages.success(request, "已为您显示个性化推荐！")
     return render(request, 'play.html', locals())
