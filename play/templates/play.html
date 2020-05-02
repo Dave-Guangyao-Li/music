@@ -142,7 +142,8 @@
                     </div><!-- end product-comment -->
                 </div><!-- end product-detail-main -->
             </div><!-- end product-detail-box -->
-
+        {{ song_info }}
+        {{ train }}
         {# 用户登录时才会为其推荐相关歌曲#}
         {% if user.is_active == 1 %}
             <div class="section">

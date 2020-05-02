@@ -182,4 +182,4 @@ EMAIL_HOST_USER = '807768293@qq.com' # 你的 QQ 账号
 EMAIL_HOST_PASSWORD = 'lvetxxynnmoibbcj'
 EMAIL_USE_TLS = True # 这里必须是 True，否则发送不成功
 EMAIL_FROM = '807768293@qq.com' # 你的 QQ 账号
-EMAIL_USE_SSL = True
+EMAIL_USE_SSL = False

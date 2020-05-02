@@ -27,13 +27,28 @@ from django import forms
 from captcha.fields import CaptchaField
 
 # 表单
-class RegisterFrom(forms.Form):
-    # 用户名
-    username = forms.CharField(required=True, min_length=4, error_messages={'invalid': '用户名长度不能少于四个字符'})
-    # 邮箱
-    email = forms.EmailField(required=True, error_messages={'invalid': '请填写正确的邮箱地址'})
-    # 密码
-    password = forms.CharField(required=True, min_length=6, error_messages={'invalid': '密码不能少于6位'})
-    rePassword = forms.CharField(required=True, min_length=6, error_messages={'invalid': '密码不能少于6位'})
-    # 验证码
-    captcha = CaptchaField(required=True, error_messages={'invalid': '验证码错误'})
+class UserForm(forms.Form):
+    username = forms.CharField(label="用户名", max_length=128, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    # widget=forms.PasswordInput用于指定该字段在form表单里表现为<input type='password' />，也就是密码输入框。
+    password = forms.CharField(label="密码", max_length=256, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    captcha = CaptchaField(label='验证码')
+    # # 用户名
+    # username = forms.CharField(required=True, min_length=4, error_messages={'invalid': '用户名长度不能少于四个字符'})
+    # # 邮箱
+    # email = forms.EmailField(required=True, error_messages={'invalid': '请填写正确的邮箱地址'})
+    # # 密码
+    # password = forms.CharField(required=True, min_length=6, error_messages={'invalid': '密码不能少于6位'})
+    # rePassword = forms.CharField(required=True, min_length=6, error_messages={'invalid': '密码不能少于6位'})
+    # # 验证码
+    # captcha = CaptchaField(required=True, error_messages={'invalid': '验证码错误'})
+
+class RegisterForm(forms.Form):
+    username = forms.CharField(label="用户名", max_length=128, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label="密码", max_length=256, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label="确认密码", max_length=256,
+                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label="邮箱地址", widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    qq = forms.CharField(label="QQ号", max_length=20, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    weChat = forms.CharField(label="微信号", max_length=20, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    mobile = forms.CharField(label="电话号", max_length=11, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    captcha = CaptchaField(label='验证码')

@@ -22,27 +22,29 @@
             <div class="login-box switch_box" style="display:block;">
                 <div class="title">用户登录</div>
                 <form id="loginForm" class="formBox" action="{% url 'login' %}" method="post">
-                    {% csrf_token %}
-                    <div class="itembox user-name">
-                        <div class="item">
-                            <input type="text" name="loginUser" placeholder="用户名或邮箱" class="txt tabInput">
-                        </div>
-                    </div>
-                    <div class="itembox user-pwd">
-                        <div class="item">
-                            <input type="password" name="password" placeholder="登录密码" class="txt tabInput">
-                        </div>
-                    </div>
-{#                    <div class="itembox">#}
-{#                        <div class="item">验证码: {{user.captcha }}</div>#}
-{#                    </div>#}
-                    {% if tips %}
-                        <div>提示:<span>{{ tips }}</span></div>
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
                     {% endif %}
+                    {% csrf_token %}
+                    <div class="item">
+                        {{ login_form.username.label_tag }}
+                        {{ login_form.username}}
+                    </div>
+                    <div class="item">
+                        {{ login_form.password.label_tag }}
+                        {{ login_form.password }}
+                    </div>
+
+                    <div class="item">
+                        {{ login_form.captcha.errors }}
+                        {{ login_form.captcha.label_tag }}
+                        {{ login_form.captcha }}
+                    </div>
+
+                    <input type="reset" class="btn btn-default pull-left">
                     <div id="loginBtnBox" class="login-btn">
                         <input id="J_LoginButton" type="submit" value="马上登录" class="tabInput pass-btn" />
                     </div>
-{#                    <div class="pass-reglink">还没有我的音乐账号？<a class="switch" href="javascript:;">免费注册</a></div>#}
                     <div class="pass-reglink">还没有我的音乐账号？<a href="register.html">免费注册</a></div>
                 </form>
             </div>
@@ -53,7 +55,36 @@
 
 
 </div>
-
+<script>
+$(function(){
+            {# ajax 刷新验证码 #}
+            $('.captcha').click(function(){
+                console.log('click');
+                    $.getJSON("/captcha/refresh/",
+                function(result){
+                    $('.captcha').attr('src', result['image_url']);
+                    $('#id_captcha_0').val(result['key'])
+            });});
+            {# ajax动态验证验证码 #}
+            $('#id_captcha_1').blur(function(){
+                // #id_captcha_1为输入框的id，当该输入框失去焦点就会触发函数
+                json_data={
+                    // 获取输入框和隐藏字段id_captcha_0的数值
+                    'response':$('#id_captcha_1').val(),
+                    'hashkey':$('#id_captcha_0').val()
+                }
+                $.getJSON('/ajax_val', json_data, function(data){
+                    $('#captcha_status').remove()
+                    //status返回1为验证码正确， status返回0为验证码错误， 在输入框的后面写入提示信息
+                    if(data['status']){
+                        $('#id_captcha_1').after('<span id="captcha_status">*验证码正确</span>')
+                    }else{
+                        $('#id_captcha_1').after('<span id="captcha_status">*验证码错误</span>')
+                    }
+                });
+            });
+        })
+</script>
 <script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
 {% endblock  %}
 

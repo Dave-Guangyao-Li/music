@@ -11,11 +11,11 @@ class MyUser(AbstractUser):
         return self.username
 
 
+
 # 定义一个邮件数据模型, 添加需要的字段
 from datetime import datetime
-
 # 邮箱验证类
-class EmailVeriRecord(models.Model):
+class EmailVeriRecord(models.Model, BaseException):
     # 验证码
     code = models.CharField(max_length=20, verbose_name='验证码')
     # 用户邮箱

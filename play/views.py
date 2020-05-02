@@ -112,6 +112,10 @@ def recommendView(request, song_id):
     request.session['song_relevant_languages'] = song_relevant_languages  # 存入session
     # 根据song_id查找歌曲信息
     song_info = Song.objects.get(song_id=int(song_id))
+
+
+
+
     # 基于用户的系统过滤推荐cfUser实现
     # train用来存储用户id:对应收藏歌曲id列表，字典存储
     train = {}

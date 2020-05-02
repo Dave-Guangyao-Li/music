@@ -4,22 +4,8 @@
 <script type="text/javascript" src='/static/js/jquery.min.js'></script>
 <link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
-{#<link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">#}
+<link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">
 
-<style>
-     .errorlist{
-         padding-left: 0;
-     }
-      .errorlist > li{
-          list-style: none;
-          color: red;
-          font-size: 19px;
-      }
-      .errborder{
-          border-color: red;
-          box-shadow: 0 0 5px red;
-      }
-  </style>
 
 </head>
 
@@ -35,61 +21,57 @@
     <div class="content clearfix">
         <div id="unauth_main" class="login-regist">
             <!-- //登录版块end -->
-            <div class="regist-box switch_box">
+{#            <div class="regist-box switch_box">#}
                 <div class="title">用户注册</div>
                 <form id="registerForm" class="formBox" method="post" action="{% url 'register' %}">
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
                     {% csrf_token %}
                     <div id="registForm" class="formBox">
-                        <div class="itembox user-name">
-                            <div class="item">
-                                <input type="text" name="loginUser" placeholder="用户名" class="txt tabInput">
-                            </div>
+                        <div class="itembox">
+                            {{ register_form.username.label_tag }}
+                            {{ register_form.username}}
                         </div>
-                        <div class="itembox ">
-                            <div class="item">
-                                <input  name="email" type="email" id="inputEmail" class="txt tabInput" placeholder="邮箱地址">
-                                {% if errMsg %}
-                                     <div>提示:<span>{{ errMsg }}</span></div>
-                                {% endif %}
-                            </div>
-                                <div>
-                                     {{ form.email.error }}
-                                </div>
-                            </div>
+                        <div class="itembox">
+                          {{ register_form.password1.label_tag }}
+                          {{ register_form.password1 }}
                         </div>
-
-                        <div class="itembox user-pwd">
-                            <div class="item">
-                                <input name="password" type="password" id="inputPassword" class="txt tabInput" placeholder="密码">
-                            </div>
-                            <div>
-                                 {{ form.password.error }}
-                            </div>
+                        <div class="itembox">
+                          {{ register_form.password2.label_tag }}
+                          {{ register_form.password2 }}
                         </div>
-
-                        <div class="itembox user-pwd">
-                            <div class="item">
-                                 <input name="rePassword" type="password" id="inputPassword" class="txt tabInput" placeholder="确认密码">
-                            </div>
-                            <div>
-                                {% if error %}
-                                    <div>提示:<span>{{ error }}</span></div>
-                                {% endif %}
-                            </div>
+                        <div class="itembox">
+                          {{ register_form.email.label_tag }}
+                          {{ register_form.email }}
+                        </div>
+                        <div class="itembox">
+                          {{ register_form.qq.label_tag }}
+                          {{ register_form.qq }}
+                        </div>
+                        <div class="itembox">
+                          {{ register_form.weChat.label_tag }}
+                          {{ register_form.weChat }}
+                        </div>
+                        <div class="itembox">
+                          {{ register_form.mobile.label_tag }}
+                          {{ register_form.mobile }}
+                        </div>
+                        <div >
+                          {{ register_form.captcha.errors }}
+                          {{ register_form.captcha.label_tag }}
+                          {{ register_form.captcha }}
                         </div>
 
-                        <div>
-                            {{ form.captcha }}
-                            {{ form.captcha.errors }}
-                        </div>
                         <div class="member-pass clearfix">
                             <input id="agree" name="agree" checked="checked" type="checkbox" value="1"><label for="agree" class="autologon">已阅读并同意用户注册协议</label>
                         </div>
+                        <input type="reset" class="btn btn-default pull-left">
                         <input type="submit" value="免费注册" id="J_RegButton" class="pass-btn tabInput"/>
                         <div class="pass-reglink">已有我的音乐帐号，<a href="login.html">立即登录</a></div>
                     </div>
                 </form>
-            </div>
+{#            </div>#}
             <!-- //注册版块end -->
 
         </div>
