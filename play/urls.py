@@ -7,4 +7,6 @@ urlpatterns = [
     path('download/<int:song_id>.html', views.downloadView, name='download'),
     # 歌曲收藏
     path('like/<int:song_id>.html', views.likeView, name='like'),
+    # 歌曲个性化推荐（协同过滤）
+    path('recommend/<int:song_id>.html', views.recommendView, name='recommend'),
 ]

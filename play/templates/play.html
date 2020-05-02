@@ -103,6 +103,7 @@
                             <a class="minimum-link-A click_down" href="{% url 'download' song_info.song_id %}">下载</a>
                             <a class="minimum-link-A" href="{% url 'comment' song_info.song_id %}" >歌曲点评</a>
                             <a class="minimum-link-A" href="{% url 'like' song_info.song_id %}" >收藏歌曲</a>
+                            <a class="minimum-link-A" href="{% url 'recommend' song_info.song_id %}" >显示个性化推荐</a>
                         </div><!-- end links-->
                         <h3 class="list_title">当前播放列表</h3>
                         <ul class="playing-li" id="songlist">
@@ -146,7 +147,7 @@
         {% if user.is_active == 1 %}
             <div class="section">
                 <div class="section-header">
-                    <h3>混合类型推荐</h3>
+                    <h3>和你有相似音乐兴趣的用户也喜欢听以下歌曲哦~</h3>
                 </div>
                 <div class="section-content">
                     <div class="parts-box">
@@ -154,12 +155,12 @@
                         <div class="parts-slider" id="J_PartsList">
                             <div class="parts-list-wrap f_w">
                                 <ul id="" class="parts-list clearfix f_s">
-                                    {% if not song_relevant_overall %}
+                                    {% if not song_cfrelevant_overall %}
                                         <h4>
                                             暂无相关推荐
                                         </h4>
                                     {% elif item.song_id != song_info.song_id %}
-                                        {% for item in song_relevant_overall %}
+                                        {% for item in song_cfrelevant_overall %}
                                             <li>
                                                 <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
                                                     <img data-src="{% static "songImg/" %}{{ item.song_img }}">

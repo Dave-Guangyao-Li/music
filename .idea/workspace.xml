@@ -4,7 +4,9 @@
     <list default="true" id="552277e1-f5ba-46bc-8443-c74b17c02d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play/templates/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/play/templates/play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/play/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/play/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +35,8 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -151,7 +153,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/static" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/search" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -165,7 +167,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="download_kugou_music" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="music" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -173,12 +175,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/search" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/play" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\MyProgramFiles\DjangoProj\music\download_kugou_music.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/play/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -237,17 +239,17 @@
       <item itemvalue="Django server.music" />
       <item itemvalue="Django tests.Test: " />
       <item itemvalue="Python.MusicSpider" />
-      <item itemvalue="Python.download_kugou_music" />
       <item itemvalue="Python.download_kugou_music (1)" />
       <item itemvalue="Python.views" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: " />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.views" />
+        <item itemvalue="Django tests.Test: " />
         <item itemvalue="Python.download_kugou_music (1)" />
         <item itemvalue="Python.MusicSpider" />
-        <item itemvalue="Python.download_kugou_music" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +274,7 @@
       <workItem from="1587700253219" duration="2796000" />
       <workItem from="1588082490003" duration="1098000" />
       <workItem from="1588084162448" duration="755000" />
-      <workItem from="1588306895921" duration="8414000" />
+      <workItem from="1588306895921" duration="33234000" />
     </task>
     <servers />
   </component>
@@ -292,22 +294,22 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1588084688005" />
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588311970118">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588352540671">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588311970118" />
-    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588311970116">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588352540671" />
+    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588352540671">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588311970116" />
-    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588311970115">
+    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588352540671" />
+    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588352540671">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588311970115" />
-    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588311970117">
+    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588352540671" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588352540671">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588311970117" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588352540671" />
     <state x="56" y="117" width="1171" height="715" key="SettingsEditor" timestamp="1588084393228">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
@@ -320,17 +322,18 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="517" y="378" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.920@0.0.1440.920" timestamp="1588084179019" />
-    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1586578005892">
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1588350270809">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.920@0.0.1440.920" timestamp="1586578005892" />
+    <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.920@0.0.1440.920" timestamp="1588350270809" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/music$views.coverage" NAME="views Coverage Results" MODIFIED="1586591218113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
+    <SUITE FILE_PATH="coverage/music$views.coverage" NAME="views Coverage Results" MODIFIED="1588334990713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
     <SUITE FILE_PATH="coverage/music$MusicSpider.coverage" NAME="MusicSpider Coverage Results" MODIFIED="1586582208196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/music$download_music.coverage" NAME="download_music Coverage Results" MODIFIED="1586428436382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static" />
     <SUITE FILE_PATH="coverage/music$download_music__1_.coverage" NAME="download_music (1) Coverage Results" MODIFIED="1586434870743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search" />
     <SUITE FILE_PATH="coverage/music$download_kugou_music__1_.coverage" NAME="download_kugou_music (1) Coverage Results" MODIFIED="1586583648369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/music$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1586591257315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/music$test.coverage" NAME="test Coverage Results" MODIFIED="1588349886222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
   </component>
 </project>

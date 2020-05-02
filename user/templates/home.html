@@ -26,6 +26,7 @@
             <div class="profile__cover_link">
                 <img src="{% static "image/user.png" %}" class="profile__cover">
             </div>
+         <a href="{% url 'logout' %}" style="color:white;">退出登录</a>
             <h1 class="profile__tit">
                 <span class="profile__name">{{ user.username }}</span>
                 {%if user.is_superuser == True %}
@@ -34,7 +35,6 @@
                     [<span class="profile__name">普通用户</span>]
                 {% endif %}
             </h1>
-                <a href="{% url 'logout' %}" style="color:white;">退出登录</a>
         </div>
     </div>
 
