@@ -67,7 +67,7 @@ CAPTCHA_BACKGROUND_COLOR = '#ffffff'
 # 图片中的文字为英文单词
 # CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.word_challenge'
 # 图片中的文字为数字表达式，如1+2=</span>
-CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 # 设置字符个数
 CAPTCHA_LENGTH = 4
 # 设置超时(minutes)
@@ -173,3 +173,13 @@ AUTH_USER_MODEL = 'user.MyUser'
 STATIC_URL = '/static/'
 # STATICFILES_DIRS用于收集admin的静态资源文件
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+
+# 邮件配置
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25   #发件箱的smtp服务器端口
+EMAIL_HOST_USER = '807768293@qq.com' # 你的 QQ 账号
+EMAIL_HOST_PASSWORD = 'lvetxxynnmoibbcj'
+EMAIL_USE_TLS = True # 这里必须是 True，否则发送不成功
+EMAIL_FROM = '807768293@qq.com' # 你的 QQ 账号
+EMAIL_USE_SSL = True

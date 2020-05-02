@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    # 用户的注册和登录
+    # 用户的登录
     path('login.html', views.loginView, name='login'),
+    # 用户的注册
+    path('register.html', views.registerView, name='register'),
     # 用户中心
     path('home/<int:page>.html', views.homeView, name='home'),
     # 退出用户登录

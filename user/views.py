@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from index.models import *
 from user.models import *
-from .form import MyUserCreationForm
 from django.db.models import Q
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import check_password
@@ -10,20 +9,31 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from .form import CaptchaTestForm
 
+
+
+
+from django.shortcuts import render, HttpResponse
+from user.form import RegisterFrom
+from user.models import MyUser
+# make_password引入密码加密的函数
+from django.contrib.auth.hashers import make_password
+# Create your views here.
+from utils.email_util import send_email
+
 # 用户注册与登录
 def loginView(request):
     # 表单提交
     if request.method == 'POST':
-        user = MyUserCreationForm()
-        # form = CaptchaTestForm(request.POST)
-        # 判断表单提交是用户登录还是用户注册
-        # 用户登录
+        form = RegisterFrom()
+    #     user = MyUserCreationForm()
+    #     # form = CaptchaTestForm(request.POST)
+    #     # 判断表单提交是用户登录还是用户注册
+    # 用户登录
         if request.POST.get('loginUser', ''):
             loginUser = request.POST.get('loginUser', '')
             password = request.POST.get('password', '')
-            # captcha = request.POST.get('captcha', '')
-            if MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)):
-                user = MyUser.objects.filter(Q(mobile=loginUser) | Q(username=loginUser)).first()
+            if MyUser.objects.filter(Q(email=loginUser) | Q(username=loginUser)):
+                user = MyUser.objects.filter(Q(email=loginUser) | Q(username=loginUser)).first()
                 if check_password(password, user.password):
                     login(request, user)
                     return redirect('/user/home/1.html')
@@ -31,20 +41,71 @@ def loginView(request):
                     tips = '密码错误'
             else:
                 tips = '用户不存在'
-        # 用户注册
-        else:
-            user = MyUserCreationForm(request.POST)
-            if user.is_valid():
-                user.save()
-                tips = '注册成功'
-            else:
-                if user.errors.get('username', ''):
-                    tips = user.errors.get('username', '注册失败')
-                else:
-                    tips = user.errors.get('mobile', '注册失败')
-    else:
-        user = MyUserCreationForm()
+    #     # 用户注册
+    #     else:
+    #         user = MyUserCreationForm(request.POST)
+    #         if user.is_valid():
+    #             user.save()
+    #             tips = '注册成功'
+    #         else:
+    #             if user.errors.get('username', ''):
+    #                 tips = user.errors.get('username', '注册失败')
+    #             else:
+    #                 tips = user.errors.get('mobile', '注册失败')
+    # else:
+    #     user = MyUserCreationForm()
     return render(request, 'login.html', locals())
+
+def registerView(request):
+    if request.method == 'GET':
+        # 构建form对象, 为了显示验证码
+        form = RegisterFrom()
+        return render(request, 'register.html', {'form': form})
+    if request.method == 'POST':
+        # 验证form提交的数据
+        form = RegisterFrom(request.POST)
+        # 判断是否合法
+        if form.is_valid():
+            # 判断密码是否一致
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            pwd = form.cleaned_data['password']
+            rePwd = form.cleaned_data['rePassword']
+            # 两次密码不一致
+            if pwd != rePwd:
+                # 返回注册页面和错误信息
+                # error = '两次密码不一致!'
+                return render(request, 'register.html', {'form': form, 'error': '两次密码不一致!'})
+            # 判断用户是否存在
+            # 根据email查找用户, 如果用户存在, 返回错误信息
+            if MyUser.objects.filter(email=email):
+                # 用户已存在
+                # errMsg = "该用户已存在!"
+                return render(request, 'register.html', {'form': form, 'errMsg': '该用户已存在!'})
+            # 创建用户
+            user = MyUser(username=username, email=email, password=make_password(pwd))
+            # 对用户传递过来的密码进行加密, 将加密之后的数据进行保存
+            # 账户状态 未激活
+            user.is_active = 0
+            # # 保存为邮箱地址, 可以使用邮箱登录后台
+            # user.username = email
+            # 保存用户
+            user.save()
+            # 发送注册邮件
+            if send_email(email, send_type='app'):
+                # 注册邮件发送成功
+                return HttpResponse('恭喜您注册成功, 激活邮件已发送至您的邮箱, 请登录后进行激活操作')
+            else:
+                return HttpResponse('恭喜您注册成功, 激活邮件发送')
+        else:
+            # 返回form表单
+            # 返回注册页面, 信息回填, 显示错误信息
+            return render(request, 'register.html', {'form': form})
+    # return render(request, 'register.html', locals())
+
+
+
+
 
 # 用户中心
 # 设置用户登录限制
