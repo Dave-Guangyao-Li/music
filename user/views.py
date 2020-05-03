@@ -45,6 +45,8 @@ def loginView(request):
                     request.session['is_login'] = True
                     request.session['user_id'] = user.id
                     request.session['user_name'] = user.username
+                    # # 弹出消息提示成功
+                    # messages.success(request, "登录成功，跳转到用户中心...")
                     return redirect('/user/home/1.html')
                 else:
                     message = "密码不正确！"
@@ -53,6 +55,8 @@ def loginView(request):
         return render(request, 'login.html', locals())
     # 非POST请求返回给用户一个空表
     login_form = UserForm()
+    # # 弹出消息提示成功
+    # messages.success(request, "登录成功，跳转到用户中心...")
     return render(request, 'login.html', locals())
 
     # # 表单提交
@@ -128,8 +132,7 @@ def registerView(request):
                 # # 账户状态 未激活
                 # new_user.is_active = 0
                 new_user.save()
-                # 弹出消息提示注册成功
-                messages.success(request, "恭喜您注册成功，跳转到登陆页面...")
+
         #         # 发送注册邮件
         #         if send_email(email, send_type='app'):
         #             # 注册邮件发送成功
@@ -144,6 +147,8 @@ def registerView(request):
                 # 重定向到登陆界面
                 return HttpResponseRedirect("login.html")
     register_form = RegisterForm()
+    # # 弹出消息提示注册成功
+    # messages.success(request, "恭喜您注册成功，跳转到登陆页面...")
     return render(request, 'register.html', locals())
     # if request.method == 'GET':
     #     # 构建form对象, 为了显示验证码

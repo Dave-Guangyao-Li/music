@@ -118,7 +118,7 @@ def recommendView(request, song_id):
 
     # 基于用户的系统过滤推荐cfUser实现
     '''目前一个缺陷就是：如果是新注册的用户，没有收藏歌曲，或某一个用户收藏的歌曲与其他任何用户都没有交集
-    都会导致在计算W时出现除以零的异常，导致页面出错
+    都会导致在计算W时出现除以零的异常，导致页面出错。目前通过设置布尔型变量解决，交集为0直接此用户相似度直接赋值为0，防止异常
     '''
 
     # train用来存储用户id:对应收藏歌曲id列表，字典存储
@@ -143,12 +143,17 @@ def recommendView(request, song_id):
     W = dict()  # 存储相似度
     current_user = MyUser.objects.get(username=request.user.username)
     current_user_id = current_user.id  # 获取当前用户id
-    for u in train.keys():
-        for v in train.keys():
-            if u == current_user_id:
-                continue
-            W[u] = len(set(train[u]) & set(train[current_user_id]))
-            W[u] /= math.sqrt(len(train[u]) * len(train[v]) * 1.0)
+    # exit_flag = False # 当W为0直接退出循环，防止发生除以零的异常
+    for u in train.keys(): # 遍历所有用户列表，跳过自身
+        # for v in train.keys():
+        if u == current_user_id:
+            continue
+        W[u] = len(set(train[u]) & set(train[current_user_id])) # 计算交集
+        if W[u] == 0: #W为0直接赋值为0，进入下一次循环，防止发生除以零的异常
+            # exit_flag = True
+            continue
+        else:
+            W[u] /= math.sqrt(len(train[u]) * len(train[current_user_id]) * 1.0)
 
     # 2.推荐和用户最相似的3个用户,将推荐用户感兴趣的推荐给目标用户，去除相同项
     rank = dict()  # 存储歌曲相关度的排序列表,如r[2]存储与歌曲id为2的歌曲的兴趣度
@@ -161,14 +166,24 @@ def recommendView(request, song_id):
                 continue
             rank[i] = 0
             rank[i] += r[1] * 1.0
+    rank = sorted(rank.items(), key=lambda item: item[1], reverse=True)[0:6] # 按兴趣度大小从大到小倒序排序，取前六个显示,注意排序后的字典中键值对变成了元组的形式存储在列表中
     # 基于用户的协同过滤推荐的结果存储进song_relevant_overall中
     song_cfrelevant_overall = []
     # 将rank中的歌曲信息存入列表 歌曲推荐只需显示名字，歌手名，专辑封面图即可
-    for sid in rank.keys():
-        cf_song_info = Song.objects.get(song_id=sid)
+    no_recommend_relevant = False
+    for song_relevant_info in rank:
+        cf_song_info = Song.objects.get(song_id=song_relevant_info[0])
         song_cfrelevant_overall.append(
             {'song_id': int(cf_song_info.song_id), 'song_singer': cf_song_info.song_singer,
-             'song_name': cf_song_info.song_name, 'song_img': cf_song_info.song_img, 'relevant_measure': rank[sid]})
+             'song_name': cf_song_info.song_name, 'song_img': cf_song_info.song_img, 'relevant_measure': song_relevant_info[1]})
+    # 如果这个相关歌曲推荐表所有歌曲兴趣推测度都为0，则no_recommend_relevant置为True,用于前端页面显示
+    test_list = []
+    overall = 0.0
+    for test in song_cfrelevant_overall: # 测试此用户是否有与其音乐兴趣相似的推荐，如果没有需要在前端页面另外提示
+        test_list.append(test['relevant_measure'])
+        overall = sum(test_list) # 如果每一个歌曲的兴趣度都是0，总和也即为0
+    if overall == 0.0:
+        no_recommend_relevant = True
     request.session['song_relevant_overall'] = song_cfrelevant_overall  # 存入session
     messages.success(request, "已为您显示个性化推荐！")
     return render(request, 'play.html', locals())

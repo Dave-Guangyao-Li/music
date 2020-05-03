@@ -142,11 +142,13 @@
                     </div><!-- end product-comment -->
                 </div><!-- end product-detail-main -->
             </div><!-- end product-detail-box -->
+{#        {{ rank }}#}
+{#        {{ top_k_result }}#}
         {# 用户登录时才会为其推荐相关歌曲#}
         {% if user.is_active == 1 %}
             <div class="section">
                 <div class="section-header">
-                    <h3>和你有相似音乐兴趣的用户也喜欢听以下歌曲哦~</h3>
+                    <h3>和你有相似音乐兴趣的用户也喜欢听以下歌曲哦（推测您对这些歌曲的兴趣度从左到右依次递减）</h3>
                 </div>
                 <div class="section-content">
                     <div class="parts-box">
@@ -158,16 +160,22 @@
                                         <h4>
                                             暂无相关推荐
                                         </h4>
+                                    {% elif no_recommend_relevant == True%}
+                                        <h4>
+                                            看来您的音乐品味很特殊呢，暂时没有根据您的音乐兴趣找到和您有相似音乐品味的用户以及相关推荐歌曲~
+                                        </h4>
                                     {% elif item.song_id != song_info.song_id %}
                                         {% for item in song_cfrelevant_overall %}
-                                            <li>
+                                            {% if item.relevant_measure == 0%}
+                                            {% else %}
+                                                <li>
                                                 <a class="pic layz_load pic_po" href="{% url 'play' item.song_id %}" target="play" >
                                                     <img data-src="{% static "songImg/" %}{{ item.song_img }}">
                                                 </a>
                                                 <h4><a href="{% url 'play' item.song_id %}" target="play" >{{ item.song_name}}</a></h4>
                                                 <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
-                                                <a href="javascript:;" class="J_MoreParts accessories-more">{{ item.song_singer}}</a>
                                             </li>
+                                            {% endif %}
                                         {% endfor %}
                                     {% endif %}
                                 </ul>
