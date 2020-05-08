@@ -81,8 +81,8 @@ input::-ms-clear {
 	outline: 0;
 	text-align: center;
 	color: #fff;
-	-webkit-transi tion: .3s;
-	trans ition: .3s
+	-webkit-transition: .3s;
+	transition: .3s
 }
 
 .pass-btn:hover {

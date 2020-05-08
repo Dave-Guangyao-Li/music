@@ -329,14 +329,14 @@ def editView(request):
         # 当一切都OK的情况下，更新
         MyUser.objects.filter(id=int(request.user.id)).update(username=username, email=email, qq=qq, weChat=weChat, mobile=mobile)
         messages.success(request, "信息修改成功!")
-        return redirect('userinfo.html', messages)
-    # 如果是GET请求则显示当前用户信息
+        return redirect('userinfo.html', {"messages": messages, "search_song":search_song})
+    # 如果是GET请求则显示当前用户信息到页面上
     else:
         current_user = MyUser.objects.get(id=int(request.user.id))
-        edit_form = RegisterForm(initial={"username":current_user.username, "email":current_user.email,\
-                                          "qq":current_user.qq, "weChat":current_user.weChat,\
-                                          "mobile":current_user.mobile})
-        return render(request, 'edit.html', {"edit_form": edit_form})
+        edit_form = RegisterForm(initial={"username": current_user.username, "email": current_user.email,\
+                                          "qq": current_user.qq, "weChat": current_user.weChat,\
+                                          "mobile": current_user.mobile})
+        return render(request, 'edit.html', {"edit_form": edit_form, "search_song": search_song})
 
 # # 实现用户密码重置
 # def resetpswView(request):

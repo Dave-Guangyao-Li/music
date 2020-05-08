@@ -35,7 +35,7 @@
                     <div class="comments-box">
                     <div class="comments-box-title">我要点评 "{{ song_name }}"：</div>
                     <div class="comments-default-score clearfix"></div>
-                    <form action="" method="post" id="usrform">
+                    <form action="{% url 'comment' song_id %}" method="post" id="usrform">
                         {% csrf_token %}
                         <div class="writebox">
                             <textarea name="comment" form="usrform"></textarea>

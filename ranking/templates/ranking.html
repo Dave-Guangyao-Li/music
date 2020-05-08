@@ -22,13 +22,26 @@
   		<!-- 子类分类排行导航 -->
   		<div class="side-nav">
 			<div class="nav-head">
-				<a href="{% url 'ranking' %}">所有歌曲分类</a>
+				<a href="{% url 'ranking' %}">所有歌曲流派</a>
 			</div>
             <ul id="sideNav" class="cate-item">
-            {% for item in All_list  %}
+            {% for item in All_list_type  %}
                 <li class="computer">
                 <div class="main-cate">
                     <a href="{% url 'ranking' %}?type={{ item.song_type }}" class="main-title">{{ item.song_type }}</a>
+                </div>
+                </li>
+            {% endfor  %}
+            </ul>
+
+        <div class="nav-head">
+				<a href="{% url 'ranking' %}">所有歌曲语种</a>
+			</div>
+            <ul id="sideNav" class="cate-item">
+            {% for item in All_list_language  %}
+                <li class="computer">
+                <div class="main-cate">
+                    <a href="{% url 'ranking' %}?language={{ item.song_languages }}" class="main-title">{{ item.song_languages }}</a>
                 </div>
                 </li>
             {% endfor  %}
@@ -46,8 +59,9 @@
 				<th class="cell-2">图片</th>
 				<th class="cell-3">歌名</th>
 				<th class="cell-4">专辑</th>
-				<th class="cell-5">下载量</th>
-				<th class="cell-6">播放量</th>
+				<th class="cell-5">播放量</th>
+				<th class="cell-6">下载量</th>
+                <th class="cell-7">收藏量</th>
 			</tr>
             {% for item in song_info  %}
                 <tr>
@@ -60,18 +74,22 @@
                     <a href="{% url 'play' item.song.song_id %}"  class="pic" target="play"><img src="{% static "songImg/" %}{{ item.song.song_img }}"  width="80" height="80"></a>
                     </td>
                     <td class="name-cell">
-                    <h3><a href="{% url 'play' item.song.song_id %}" target="play" >{{item.song.song_name}}</a></h3>
-                    <div class="desc">
-                    <a href="javascript:;" target="_blank" class="type" >{{item.song.song_singer}}</a>
-                    </div>
+                        <h3><a href="{% url 'play' item.song.song_id %}" target="play" >{{item.song.song_name}}</a></h3>
+                        <div class="desc">
+                            <a href="javascript:;" target="_blank" class="type" >{{item.song.song_singer}}</a>
+                        </div>
                     </td>
                     <td>
-                    <div style="text-align:center;">{{item.song.song_album}}</div>
+                        <div style="text-align:center;">{{item.song.song_album}}</div>
+                    </td>
+                    <td class="num-cell">
+                        <div style="text-align:center;">{{item.dynamic_plays}}</div>
                     </td>
                     <td>
-                    <div style="text-align:center;">{{item.dynamic_down}}</div>
+                        <div style="text-align:center;">{{item.dynamic_down}}</div>
                     </td>
-                    <td class="num-cell">{{item.dynamic_plays}}</td>
+                    <td class="num-cell">{{item.dynamic_like}}
+                    </td>
                 </tr>
             {% endfor  %}
         </table>
