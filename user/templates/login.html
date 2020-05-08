@@ -5,20 +5,64 @@
 <link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
 <link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">
+{#<!-- 引入 jquery、Bootstrap -->#}
+{#<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">#}
+{#<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>#}
+{#<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+
+
 </head>
 
 <body class="review">
+
+    {% include "header.html" %}
+    <div class="nav-box">
+		<div class="nav-box-inner">
+			<ul class="nav clearfix">
+                <li><a href="/">首页</a></li>
+				<li><a href="{% url 'ranking' %}">歌曲排行</a></li>
+	    	    <li><a href="{% url 'home' 1 %}" target="_blank">用户中心</a></li>
+			</ul>
+		</div>
+	</div><!--end nav-box-->
+
+
 <div class="wrapper">
     <div class="header clearfix">
-        <a href="/" class="logo">LGY的音乐</a>
         <span class="logo-tip">Hi,LGY的音乐欢迎您!</span>
     </div>
-
-
 
     <div class="content clearfix">
         <!-- 登录注册版块 -->
         <div id="unauth_main" class="login-regist">
+
+{#            <!-- 登录表单 -->#}
+{#            <div class="login-form">#}
+{#                <center><span>管理系统</span></center>#}
+{#                    <div class="form-group">#}
+{#                        {{ login_form.username.label_tag }}#}
+{#                        {{ login_form.username}}#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        {{ login_form.password.label_tag }}#}
+{#                        {{ login_form.password }}#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        {{ login_form.captcha.errors }}#}
+{#                        {{ login_form.captcha.label_tag }}#}
+{#                        {{ login_form.captcha }}#}
+{#                    </div>#}
+{#                    <div class="c3-1">#}
+{#                        <center>#}
+{#                            <input type="submit" id="login" value="马上登录" class="btn btn-primary">#}
+{#                        </center>#}
+{#                        <br />#}
+{#                        <a id="searchPwd" data-toggle="modal" data-target="#searchPwd-window">忘记密码</a>#}
+{##}
+{#                        <a href="register.html" id="toRegister">立即注册</a>#}
+{#                    </div>#}
+{#            </div>#}
+
             <div class="login-box switch_box" style="display:block;">
                 <div class="title">用户登录</div>
                 <form id="loginForm" class="formBox" action="{% url 'login' %}" method="post">
@@ -45,6 +89,7 @@
                     <div id="loginBtnBox" class="login-btn">
                         <input id="J_LoginButton" type="submit" value="马上登录" class="tabInput pass-btn" />
                     </div>
+{#                    <div class="pass-reglink"><a id="searchPwd" data-toggle="modal" data-target="#searchPwd-window">忘记密码</a>#}
                     <div class="pass-reglink">还没有我的音乐账号？<a href="register.html">免费注册</a></div>
                 </form>
             </div>
@@ -55,6 +100,40 @@
 
 
 </div>
+
+{#    <!-- 找回密码框 -->#}
+{#		<div class="modal fade" id="searchPwd-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#			<div class="modal-dialog">#}
+{#				<div class="modal-content">#}
+{#					<div class="modal-header">#}
+{#						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>#}
+{#						<h4 class="modal-title" id="myModalLabel">重置密码</h4>#}
+{#					</div>#}
+{#					<div class="modal-body">#}
+{#						<form class="form-inline" role="form">#}
+{#						<label>用&ensp;户&ensp;名:</label><input class="form-control" placeholder="请输入您的用户名" />#}
+{#						<br />#}
+{#						<br />#}
+{#						<label>新&ensp;密&ensp;码:</label><input class="form-control" placeholder="请设置您的新密码(不少于8位)" />#}
+{#						<br />#}
+{#						<br />#}
+{#						<label>确认密码:</label><input class="form-control" placeholder="请再次确认您的新密码" />#}
+{#						<br />#}
+{#						<br />#}
+{#						<label>手&ensp;机&ensp;号:</label><input class="form-control" placeholder="请输入您绑定的手机号" />#}
+{#						<input type="button" value="发送验证码" class="btn btn-info" />#}
+{#						<br />#}
+{#						<br />#}
+{#						<label>验&ensp;证&ensp;码:</label><input class="form-control" placeholder="请输入短信验证码" />#}
+{#						</form>#}
+{#					</div>#}
+{#					<div class="modal-footer">#}
+{#						<button type="button" id="resetPwd" @click="resetPwd" class="btn btn-primary">重置密码</button>#}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+
 <script>
 $(function(){
             {# ajax 刷新验证码 #}

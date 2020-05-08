@@ -26,7 +26,7 @@
             <div class="profile__cover_link">
                 <img src="{% static "image/user.png" %}" class="profile__cover">
             </div>
-         <a href="{% url 'logout' %}" style="color:white;">退出登录</a>
+         <a href="{% url 'userinfo' %}" style="color:white;">查看注册信息</a>
             <h1 class="profile__tit">
                 <span class="profile__name">{{ user.username }}</span>
                 {%if user.is_superuser == True %}
@@ -57,15 +57,16 @@
 								<div class="songlist__item songlist__item--even">
 							    <div class="songlist__songname">
                                     <a href="{% url 'play' item.song_id %}" class="js_song songlist__songname_txt" >{{ item.song_name }}</a>
-							    </div>
+                                    <button type="button" class="btn btn-default btn-mini">
+                                    <a href="{% url 'unlike' item.song_id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 取消收藏</a>
+                                    </button>
+                                </div>
 							    <div class="songlist__artist">
                                     <a href="javascript:;" class="singer_name">{{ item.song_singer }}</a>
 							    </div>
 							    <div class="songlist__time">{{ item.song_time }}</div>
 								</div>
-                                <button type="button" class="btn btn-default btn-lg">
-                                    <a href="{% url 'unlike' item.song_id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> 取消收藏</a>
-                                </button>
+
 							</li>
                             {% endfor %}
 						</ul>

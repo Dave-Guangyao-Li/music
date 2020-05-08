@@ -4,7 +4,13 @@
     <list default="true" id="552277e1-f5ba-46bc-8443-c74b17c02d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/play/templates/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/play/templates/play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/play/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/title_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/title_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -65,18 +71,18 @@
     <property name="settings.editor.selected.configurable" value="leetcode.id" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyProgramFiles\DjangoProj\music\static\image" />
+      <recent name="D:\MyProgramFiles\DjangoProj\music\static\css" />
+      <recent name="D:\MyProgramFiles\DjangoProj\music\user" />
+      <recent name="D:\MyProgramFiles\DjangoProj\music\user\templates" />
+      <recent name="D:\MyProgramFiles\DjangoProj\music\search\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\MyProgramFiles\DjangoProj\music" />
       <recent name="D:\MyProgramFiles\DjangoProj\music\static\image" />
       <recent name="D:\MyProgramFiles\DjangoProj\music\search" />
       <recent name="D:\MyProgramFiles\DjangoProj\music\static" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MyProgramFiles\DjangoProj\music\static\css" />
-      <recent name="D:\MyProgramFiles\DjangoProj\music\user" />
-      <recent name="D:\MyProgramFiles\DjangoProj\music\user\templates" />
-      <recent name="D:\MyProgramFiles\DjangoProj\music\search\templates" />
-      <recent name="D:\MyProgramFiles\DjangoProj\music\ranking\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.music">
@@ -275,7 +281,9 @@
       <workItem from="1588082490003" duration="1098000" />
       <workItem from="1588084162448" duration="755000" />
       <workItem from="1588306895921" duration="66913000" />
-      <workItem from="1588467897139" duration="4993000" />
+      <workItem from="1588467897139" duration="6767000" />
+      <workItem from="1588566387353" duration="4885000" />
+      <workItem from="1588774044267" duration="24825000" />
     </task>
     <servers />
   </component>
@@ -295,30 +303,30 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1588084688005" />
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588432029880">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588898387298">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588432029880" />
-    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588432029880">
+    <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588898387298" />
+    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588898387298">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588432029880" />
-    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588432029880">
+    <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588898387298" />
+    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588898387297">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588432029880" />
-    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588432029880">
+    <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588898387297" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588898387298">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588432029880" />
+    <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588898387298" />
     <state x="56" y="117" width="1171" height="715" key="SettingsEditor" timestamp="1588084393228">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="56" y="117" width="1171" height="715" key="SettingsEditor/0.0.1440.920@0.0.1440.920" timestamp="1588084393228" />
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1588467906748">
+    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1588774044978">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1588467906748" />
+    <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1588774044978" />
     <state x="517" y="378" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588084179019">
       <screen x="0" y="0" width="1440" height="920" />
     </state>

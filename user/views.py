@@ -28,6 +28,8 @@ from utils.email_util import send_email
 
 # 用户注册与登录
 def loginView(request):
+    # 搜索歌曲
+    search_song = Dynamic.objects.select_related('song').order_by('-dynamic_search').all()[:4]
     # if request.session.get('is_login', None):
     #     return redirect("/user/home/1.html")
     if request.method == "POST":
@@ -45,9 +47,9 @@ def loginView(request):
                     request.session['is_login'] = True
                     request.session['user_id'] = user.id
                     request.session['user_name'] = user.username
-                    # # 弹出消息提示成功
-                    # messages.success(request, "登录成功，跳转到用户中心...")
-                    return redirect('/user/home/1.html')
+                    # 弹出消息提示成功
+                    messages.success(request, "登录成功，跳转到用户中心...")
+                    return redirect('/user/home/1.html', messages)
                 else:
                     message = "密码不正确！"
             except:
@@ -55,8 +57,6 @@ def loginView(request):
         return render(request, 'login.html', locals())
     # 非POST请求返回给用户一个空表
     login_form = UserForm()
-    # # 弹出消息提示成功
-    # messages.success(request, "登录成功，跳转到用户中心...")
     return render(request, 'login.html', locals())
 
     # # 表单提交
@@ -94,6 +94,8 @@ def loginView(request):
     # return render(request, 'login.html', locals())
 
 def registerView(request):
+    # 搜索歌曲
+    search_song = Dynamic.objects.select_related('song').order_by('-dynamic_search').all()[:4]
     # if request.session.get('is_login', None):
     #     # 登录状态不允许注册。你可以修改这条原则！
     #     return redirect("/index/")
@@ -144,11 +146,13 @@ def registerView(request):
         #     # 返回form表单
         #     # 返回注册页面, 信息回填, 显示错误信息
         #     return render(request, 'register.html', locals())
+
+                # 弹出消息提示注册成功
+                messages.success(request, "恭喜您注册成功，跳转到登录页面...")
                 # 重定向到登陆界面
-                return HttpResponseRedirect("login.html")
+                return redirect('login.html', messages)
+                # return render(request, 'login.html', locals())
     register_form = RegisterForm()
-    # # 弹出消息提示注册成功
-    # messages.success(request, "恭喜您注册成功，跳转到登陆页面...")
     return render(request, 'register.html', locals())
     # if request.method == 'GET':
     #     # 构建form对象, 为了显示验证码
@@ -279,3 +283,62 @@ def ajax_val(request):
 #     s += salt
 #     h.update(s.encode())  # update方法只接收bytes类型
 #     return h.hexdigest()
+
+# 实现用户信息显示
+def userinfoView(request):
+    # 搜索歌曲
+    search_song = Dynamic.objects.select_related('song').order_by('-dynamic_search').all()[:4]
+    current_user = MyUser.objects.get(username=request.user.username)
+    current_user_id = current_user.id  # 获取当前用户id
+    # 分别获取用户的相关信息,传到前端
+    username = MyUser.objects.values('username').get(id=int(current_user_id))['username']
+    email = MyUser.objects.values('email').get(id=int(current_user_id))['email']
+    qq = MyUser.objects.values('qq').get(id=int(current_user_id))['qq']
+    weChat = MyUser.objects.values('weChat').get(id=int(current_user_id))['weChat']
+    mobile = MyUser.objects.values('mobile').get(id=int(current_user_id))['mobile']
+
+    return render(request, 'userinfo.html', locals())
+
+# 实现用户注册信息修改
+def editView(request):
+    '''
+    先把已有的用户信息读出来，然后判断用户请求是POST还是GET。如果是GET，则显示表单
+    并将用户已有信息也显示在其中，如果是POST，则接收用户提交的表单信息，然后更新各个数据模型实例属性的值
+    '''
+    # 搜索歌曲
+    search_song = Dynamic.objects.select_related('song').order_by('-dynamic_search').all()[:4]
+    if request.method == "POST":
+        data = request.POST
+        edit_form = RegisterForm(request.POST)
+        message = "请检查填写的内容！"
+    # if edit_form.is_valid():  # 获取数据
+    #     # userChange = edit_form.cleaned_data
+        username = data.get('username')
+        email = data.get('email')
+        qq = data.get('qq')
+        weChat = data.get('weChat')
+        mobile = data.get('mobile')
+        same_name_user = MyUser.objects.filter(username=username)  #确保数据库中没有其它相同用户名存在
+        if same_name_user:  # 用户名唯一
+            message = '用户已经存在，请重新选择用户名！'
+            return render(request, 'edit.html', locals())
+        same_email_user = MyUser.objects.filter(email=email)
+        if same_email_user:  # 邮箱地址唯一
+            message = '该邮箱地址已被注册，请使用别的邮箱！'
+            return render(request, 'edit.html', locals())
+        # 当一切都OK的情况下，更新
+        MyUser.objects.filter(id=int(request.user.id)).update(username=username, email=email, qq=qq, weChat=weChat, mobile=mobile)
+        messages.success(request, "信息修改成功!")
+        return redirect('userinfo.html', messages)
+    # 如果是GET请求则显示当前用户信息
+    else:
+        current_user = MyUser.objects.get(id=int(request.user.id))
+        edit_form = RegisterForm(initial={"username":current_user.username, "email":current_user.email,\
+                                          "qq":current_user.qq, "weChat":current_user.weChat,\
+                                          "mobile":current_user.mobile})
+        return render(request, 'edit.html', {"edit_form": edit_form})
+
+# # 实现用户密码重置
+# def resetpswView(request):
+#     pass
+

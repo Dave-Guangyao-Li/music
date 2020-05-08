@@ -1,0 +1,78 @@
+{% extends "title_base.html"  %}
+{% block title  %}
+{% load staticfiles %}
+<script type="text/javascript" src='/static/js/jquery.min.js'></script>
+<link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
+<link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
+<link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">
+
+
+</head>
+
+
+<body class="review">
+    {% include "header.html" %}
+    <div class="nav-box">
+		<div class="nav-box-inner">
+			<ul class="nav clearfix">
+                <li><a href="/">首页</a></li>
+				<li><a href="{% url 'ranking' %}">歌曲排行</a></li>
+	    	    <li><a href="{% url 'home' 1 %}" target="_blank">用户中心</a></li>
+			</ul>
+		</div>
+	</div><!--end nav-box-->
+
+
+    <div class="wrapper">
+        <div class="header clearfix">
+            <span class="logo-tip">Hi,LGY的音乐欢迎您!</span>
+        </div>
+
+        <div class="content clearfix">
+            <div id="unauth_main" class="login-regist">
+                <div class="title"><center>我的信息</center></div>
+                    <div class="formBox">
+                        <div class="item">
+                            <div class="col-md-4 text-right">
+                                <span>用户名:</span>
+                                <span>{{username}}</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4 text-right">
+                                <span>邮箱:</span>
+                                <span>{{email}}</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4 text-right">
+                                <span>QQ号:</span>
+                                <span>{{qq}}</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4 text-right">
+                                <span>微信号:</span>
+                                <span>{{weChat}}</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-md-4 text-right">
+                                <span>电话号:</span>
+                                <span>{{mobile}}</span>
+                            </div>
+                        </div>
+                    </div>
+                        <a href="edit.html">
+                            <button id="J_RegButton" class="pass-btn tabInput">
+                            编辑我的信息
+                            </button>
+                        </a>
+
+            </div>
+        </div>
+    </div>
+
+<script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
+{% endblock  %}
+

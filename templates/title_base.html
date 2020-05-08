@@ -10,7 +10,13 @@
 <title>Lgy6533的音乐</title>
 
 {% block title %}{% endblock %}
-
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+    </script>
+{% endif %}
 <div class="footer">
     <div class="copyright">
         <p>太原理工大学 软件学院 李光耀 2016006533 网站数据信息来源于网络</p>

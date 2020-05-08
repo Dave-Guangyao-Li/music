@@ -11,10 +11,19 @@
 
 
 <body class="review">
+    {% include "header.html" %}
+    <div class="nav-box">
+		<div class="nav-box-inner">
+			<ul class="nav clearfix">
+                <li><a href="/">首页</a></li>
+				<li><a href="{% url 'ranking' %}">歌曲排行</a></li>
+	    	    <li><a href="{% url 'home' 1 %}" target="_blank">用户中心</a></li>
+			</ul>
+		</div>
+	</div><!--end nav-box-->
 
 <div class="wrapper">
     <div class="header clearfix">
-        <a href="/" class="logo">LGY的音乐</a>
         <span class="logo-tip">Hi,LGY的音乐欢迎您!</span>
     </div>
 
@@ -29,31 +38,31 @@
                     {% endif %}
                     {% csrf_token %}
                     <div id="registForm" class="formBox">
-                        <div class="itembox">
+                        <div class="item">
                             {{ register_form.username.label_tag }}
                             {{ register_form.username}}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.password1.label_tag }}
                           {{ register_form.password1 }}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.password2.label_tag }}
                           {{ register_form.password2 }}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.email.label_tag }}
                           {{ register_form.email }}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.qq.label_tag }}
                           {{ register_form.qq }}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.weChat.label_tag }}
                           {{ register_form.weChat }}
                         </div>
-                        <div class="itembox">
+                        <div class="item">
                           {{ register_form.mobile.label_tag }}
                           {{ register_form.mobile }}
                         </div>

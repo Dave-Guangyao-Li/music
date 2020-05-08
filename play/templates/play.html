@@ -16,13 +16,7 @@
 {#        alert("已收藏");#}
 {#    }#}
 {#</script>#}
-{% if messages %}
-    <script>
-        {% for msg in messages %}
-            alert('{{ msg.message }}');
-        {% endfor %}
-    </script>
-{% endif %}
+
 </head>
 <body>
     {% include "header.html" %}

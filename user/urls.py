@@ -13,5 +13,11 @@ urlpatterns = [
     # 验证码验证API接口
     path('ajax_val', views.ajax_val, name='ajax_val'),
     # 取消收藏歌曲
-    path('unlike/<int:song_id>.html', views.unlikeView, name='unlike')
+    path('unlike/<int:song_id>.html', views.unlikeView, name='unlike'),
+    # 用户查看自己的注册信息
+    path('userinfo.html', views.userinfoView, name='userinfo'),
+    # 用户编辑自己的个人信息
+    path('edit.html', views.editView, name='edit'),
+    # # 用户重置密码
+    # path('resetpsw.html', views.resetpswView, name='resetpsw')
 ]

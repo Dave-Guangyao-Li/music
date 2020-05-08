@@ -1,0 +1,69 @@
+{% extends "title_base.html"  %}
+{% block title  %}
+{% load staticfiles %}
+<script type="text/javascript" src='/static/js/jquery.min.js'></script>
+<link type="image/x-icon" rel="shortcut icon" href="{% static "favicon.jpg" %}">
+<link type="text/css" rel="stylesheet" href="{% static "css/common.css" %}">
+<link type="text/css" rel="stylesheet" href="{% static "css/register.css" %}">
+
+
+</head>
+
+
+<body class="review">
+    {% include "header.html" %}
+    <div class="nav-box">
+		<div class="nav-box-inner">
+			<ul class="nav clearfix">
+                <li><a href="/">首页</a></li>
+				<li><a href="{% url 'ranking' %}">歌曲排行</a></li>
+	    	    <li><a href="{% url 'home' 1 %}" target="_blank">用户中心</a></li>
+			</ul>
+		</div>
+	</div><!--end nav-box-->
+
+
+    <div class="wrapper">
+        <div class="header clearfix">
+            <span class="logo-tip">Hi,LGY的音乐欢迎您!</span>
+        </div>
+
+        <div class="content clearfix">
+            <div id="unauth_main" class="login-regist">
+                <div class="title"><center>我的信息</center></div>
+                    <form id="editForm" class="formBox" method="post" action="{% url 'edit' %}">
+                        {% if message %}
+                            <div class="alert alert-warning">{{ message }}</div>
+                        {% endif %}
+                        {% csrf_token %}
+                        <div class="formBox">
+                            <div class="item">
+                                {{ edit_form.username.label_tag }}
+                                {{ edit_form.username}}
+                            </div>
+                            <div class="item">
+                              {{ edit_form.email.label_tag }}
+                              {{ edit_form.email }}
+                            </div>
+                            <div class="item">
+                              {{ edit_form.qq.label_tag }}
+                              {{ edit_form.qq }}
+                            </div>
+                            <div class="item">
+                              {{ edit_form.weChat.label_tag }}
+                              {{ edit_form.weChat }}
+                            </div>
+                            <div class="item">
+                              {{ edit_form.mobile.label_tag }}
+                              {{ edit_form.mobile }}
+                            </div>
+                            </div>
+                        <input type="submit" value="提交修改" id="J_RegButton" class="pass-btn tabInput"/>
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+<script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
+{% endblock  %}
+
