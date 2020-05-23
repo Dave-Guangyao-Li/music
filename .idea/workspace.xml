@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="552277e1-f5ba-46bc-8443-c74b17c02d12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/music.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/music.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/templates/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/comment/templates/comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ranking/templates/ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/ranking/templates/ranking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ranking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ranking/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="leetcode.id" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -283,6 +279,8 @@
       <workItem from="1588467897139" duration="6767000" />
       <workItem from="1588566387353" duration="4885000" />
       <workItem from="1588774044267" duration="33882000" />
+      <workItem from="1590243552755" duration="562000" />
+      <workItem from="1590244219530" duration="1396000" />
     </task>
     <servers />
   </component>
@@ -290,10 +288,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="176" y="116" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586591209397">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state x="188" y="104" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590245779826">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="176" y="116" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.920@0.0.1440.920" timestamp="1586591209397" />
+    <state x="188" y="104" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1590245779826" />
     <state x="465" y="315" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588944984278">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
@@ -306,30 +305,36 @@
       <screen x="0" y="0" width="1440" height="920" />
     </state>
     <state x="501" y="216" key="FileChooserDialogImpl/0.0.1440.920@0.0.1440.920" timestamp="1588084688005" />
-    <state width="1397" height="143" key="GridCell.Tab.0.bottom" timestamp="1588950506240">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1590245749366">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1397" height="143" key="GridCell.Tab.0.bottom/0.0.1440.920@0.0.1440.920" timestamp="1588950506240" />
-    <state width="1397" height="143" key="GridCell.Tab.0.center" timestamp="1588950506240">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590245749366" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1590245749366">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1397" height="143" key="GridCell.Tab.0.center/0.0.1440.920@0.0.1440.920" timestamp="1588950506240" />
-    <state width="1397" height="143" key="GridCell.Tab.0.left" timestamp="1588950506240">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590245749366" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1590245749366">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1397" height="143" key="GridCell.Tab.0.left/0.0.1440.920@0.0.1440.920" timestamp="1588950506240" />
-    <state width="1397" height="143" key="GridCell.Tab.0.right" timestamp="1588950506240">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590245749366" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1590245749366">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1397" height="143" key="GridCell.Tab.0.right/0.0.1440.920@0.0.1440.920" timestamp="1588950506240" />
-    <state x="56" y="117" width="1171" height="715" key="SettingsEditor" timestamp="1588084393228">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590245749366" />
+    <state x="72" y="88" width="1250" height="707" key="SettingsEditor" timestamp="1590245812405">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="56" y="117" width="1171" height="715" key="SettingsEditor/0.0.1440.920@0.0.1440.920" timestamp="1588084393228" />
-    <state x="405" y="285" key="com.intellij.ide.util.TipDialog" timestamp="1588774044978">
-      <screen x="0" y="0" width="1440" height="920" />
+    <state x="72" y="88" width="1250" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1590245812405" />
+    <state x="432" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1590244219985">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="405" y="285" key="com.intellij.ide.util.TipDialog/0.0.1440.920@0.0.1440.920" timestamp="1588774044978" />
+    <state x="432" y="255" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590244219985" />
     <state x="517" y="378" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588084179019">
       <screen x="0" y="0" width="1440" height="920" />
     </state>
@@ -340,12 +345,12 @@
     <state x="383" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1440.920@0.0.1440.920" timestamp="1588947342441" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/music$views.coverage" NAME="views Coverage Results" MODIFIED="1588334990713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
     <SUITE FILE_PATH="coverage/music$MusicSpider.coverage" NAME="MusicSpider Coverage Results" MODIFIED="1586582208196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/music$download_music.coverage" NAME="download_music Coverage Results" MODIFIED="1586428436382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static" />
-    <SUITE FILE_PATH="coverage/music$download_music__1_.coverage" NAME="download_music (1) Coverage Results" MODIFIED="1586434870743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search" />
     <SUITE FILE_PATH="coverage/music$download_kugou_music__1_.coverage" NAME="download_kugou_music (1) Coverage Results" MODIFIED="1586583648369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/music$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1586591257315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/music$test.coverage" NAME="test Coverage Results" MODIFIED="1588349886222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
+    <SUITE FILE_PATH="coverage/music$download_music.coverage" NAME="download_music Coverage Results" MODIFIED="1586428436382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static" />
+    <SUITE FILE_PATH="coverage/music$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1586591257315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/music$download_music__1_.coverage" NAME="download_music (1) Coverage Results" MODIFIED="1586434870743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/search" />
+    <SUITE FILE_PATH="coverage/music$views.coverage" NAME="views Coverage Results" MODIFIED="1588334990713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/play" />
   </component>
 </project>
